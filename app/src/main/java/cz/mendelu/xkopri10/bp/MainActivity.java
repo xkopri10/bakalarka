@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.myRecyclerViewRandom);
         recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setFocusable(false);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         myRecGrat = (RecyclerView) findViewById(R.id.myRecGrat);
         myRecGrat.setNestedScrollingEnabled(false);
+        myRecGrat.setFocusable(false);
         layManGrat = new LinearLayoutManager(this);
         myRecGrat.setLayoutManager(layManGrat);
         myRecGrat.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {

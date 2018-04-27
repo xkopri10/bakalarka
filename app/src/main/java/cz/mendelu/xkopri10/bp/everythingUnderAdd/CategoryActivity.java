@@ -34,12 +34,12 @@ public class CategoryActivity extends AppCompatActivity {
     public static final String EXTRA_COLOR = "coloris";
     public static final String EXTRA_NAME_CAT = "namis";
 
-    public static final String DEFAULT_COLOR = "#E0E0E0";
+    public static final String DEFAULT_COLOR = "#9D9476";
 
     public DatabaseHelper databaseHelper;
     public EditText editTextNameCategory;
     private Button colorButton;
-    private String myColor = DEFAULT_COLOR;// = "#E0E0E0"; //defaultni barva pokud uzivatel neprida svoji konkretni
+    private String myColor ; //= DEFAULT_COLOR;// = "#E0E0E0"; //defaultni barva pokud uzivatel neprida svoji konkretni
 
     public long mojeID;
     private String mojeBarva, barvaYY, nazev, mujNamis;
@@ -72,7 +72,10 @@ public class CategoryActivity extends AppCompatActivity {
 
         //pro poslani id z minule aktivity
         bundleFromPreviousActivity();
-        myColor = mojeBarva;
+        //myColor = mojeBarva;
+        if (editace){
+            myColor = mojeBarva;
+        }else myColor = DEFAULT_COLOR;
 
     }
 
