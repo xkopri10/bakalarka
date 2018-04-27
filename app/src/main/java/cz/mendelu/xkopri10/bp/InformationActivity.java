@@ -57,7 +57,7 @@ public class InformationActivity extends AppCompatActivity {
         textViewAuthor = (TextView)findViewById(R.id.author);
 
         textViewAbout.setText(
-                "Nástroj na podporu pozitivního myšlení, udržení dobré nálady a šťastného života.\nAplikace byla vytvořena jako bakalářská práce."
+                "Nástroj na podporu pozitivního myšlení, udržení dobré nálady a šťastného života.\nAplikace byla vytvořena jako bakalářská práce.\n\nO principu metody se dozvíš v Nápovědě."
         );
         textViewAuthor.setText(
                 "Martin Kopřiva\n" +
