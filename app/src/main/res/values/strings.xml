@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Positive Flow</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">DNES</string>
+    <string name="tab_text_2">VŠECHNY</string>
+</resources>

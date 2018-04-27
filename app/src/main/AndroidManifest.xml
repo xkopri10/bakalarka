@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cz.mendelu.xkopri10.bp">
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".WelcomeSplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="525e81d7c95744f1b3a5cbaad42ff9195fd7d7c6" />
+
+        <receiver
+            android:name=".notifications.NotificationReciever"
+            android:directBootAware="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".notifications.NotificationRecieverMotivation"
+            android:directBootAware="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".everythingUnderHelp.HelpActivity"
+            android:label="Rozveselení"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".everythingUnderAdd.MainAddActivity"
+            android:label="Nové přidání"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.SettingActivity"
+            android:label="Nastavení notifikací"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InformationActivity"
+            android:label="Informace"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".list.ListActivity"
+            android:label="Seznamy"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".everythingUnderAdd.EditingCategoryActivity"
+            android:label="Kategorie"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".everythingUnderAdd.CategoryActivity"
+            android:label="Nová kategorie"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".everythingUnderAdd.CategoryDetail"
+            android:label="Typy kategorie"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".everythingUnderAdd.TypeActivity"
+            android:label="Nový typ"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".list.DetailOfListActivity"
+            android:label="Detail radosti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".everythingUnderHelp.HelpDetailRow"
+            android:label="Statistiky kategorie"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".everythingUnderHelp.HelpDetailRowGratitude"
+            android:label="Statistiky vděčností"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".list.DetailPhotoGalleryActivity"
+            android:label="Galerie"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.ActivityGalery" />
+        <activity
+            android:name=".list.DetailOfListActivityGratitude"
+            android:label="Detail vděčnosti"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="cz.mendelu.xkopri10.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".settings.ChoosingCategorySettingsActivity"
+            android:label="Výběr kategorií"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HintActivity"
+            android:screenOrientation="portrait"
+            android:label="Nápověda"/>
+
+
+    </application>
+
+</manifest>

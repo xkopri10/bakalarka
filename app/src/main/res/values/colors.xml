@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="white">#ffffff</color>
+    <color name="whiteOpacity">#70ffffff</color>
+    <color name="blackOpacity">#99000000</color>
+    <color name="gold">#FBC02D</color>
+    <color name="purpure">#c2185b</color>
+    <color name="darkpurple">#9e0b44</color>
+
+    <color name="second_grey">#CCCCCC</color>
+    <color name="main_grey">#F5F5F5</color>
+    <color name="grey_light">#e8e8e8</color>
+
+    <color name="dark_grey">#5E5E5E</color>
+    <color name="blue">#36486b</color>
+    <color name="gold2">#e6a700</color>
+
+    <color name="greatfulness_color_gold">#FBC02D</color>
+    <color name="color_orange">#E4572E</color>
+
+
+</resources>
