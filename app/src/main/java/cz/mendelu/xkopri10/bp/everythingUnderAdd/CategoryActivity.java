@@ -159,6 +159,7 @@ public class CategoryActivity extends AppCompatActivity {
         colors.add("#DB504A");      //cervena
         colors.add("#f97171");      //cervenoruzova
         colors.add("#ff9800");      //oranzova
+
         colors.add("#66923c");      //zelena
         colors.add("#94b359");      //tmave zelena
         colors.add("#247ba0");      //modra
@@ -173,7 +174,8 @@ public class CategoryActivity extends AppCompatActivity {
           .setOnFastChooseColorListener(
               new ColorPicker.OnFastChooseColorListener() {
               @Override
-              public void setOnFastChooseColorListener(int position, int color) {
+              public void setOnFastChooseColorListener(int position, int color)
+              {
                   myColor = colors.get(position);
                   colorButton.setBackgroundColor(Color.parseColor(myColor));
               }

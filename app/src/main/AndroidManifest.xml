@@ -20,7 +20,6 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -55,13 +54,19 @@
 
         <receiver
             android:name=".notifications.NotificationReciever"
-            android:process=":remote"
             android:enabled="true">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
         <receiver
             android:name=".notifications.NotificationRecieverMotivation"
-            android:process=":remote"
             android:enabled="true">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
 
         <activity

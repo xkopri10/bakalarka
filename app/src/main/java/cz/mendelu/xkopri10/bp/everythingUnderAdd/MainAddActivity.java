@@ -147,7 +147,7 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
 
         //nastav do setview datum - pokud se to nepovede tak vyhoď vyjímku
         try {
-            //xxxxx = "2018-03-25";
+            //xxxxx = "2018-04-02";
             xxxxx = db.getTodayDate();
             konverze(); //puvodni datum na upravený datum
             Log.e("xxxxx: ",xxxxx);
