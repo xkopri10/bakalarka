@@ -65,8 +65,9 @@ public class NotificationReciever extends BroadcastReceiver{
             calendar.setTimeInMillis(longMilis);
             calendar.add(Calendar.DAY_OF_MONTH, 1);
             if (alarmManager != null) {
-                alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
             }
         }
     }
+
 }

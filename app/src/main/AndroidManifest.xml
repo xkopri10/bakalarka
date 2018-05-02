@@ -18,8 +18,8 @@
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -48,26 +48,19 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <receiver
+            android:name=".notifications.NotificationReciever"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".notifications.NotificationRecieverMotivation"
+            android:enabled="true"
+            android:exported="true"/>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="525e81d7c95744f1b3a5cbaad42ff9195fd7d7c6" />
-
-        <receiver
-            android:name=".notifications.NotificationReciever"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name=".notifications.NotificationRecieverMotivation"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
 
         <activity
             android:name=".everythingUnderHelp.HelpActivity"

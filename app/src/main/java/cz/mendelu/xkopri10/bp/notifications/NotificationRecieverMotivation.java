@@ -1,5 +1,6 @@
 package cz.mendelu.xkopri10.bp.notifications;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,6 +15,7 @@ import com.crashlytics.android.Crashlytics;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +31,8 @@ import io.fabric.sdk.android.Fabric;
 
 public class NotificationRecieverMotivation extends BroadcastReceiver {
 
+    long longMilis = 0;
+
     DatabaseHelper db;
     String notificationNote;
     long mojeidecko;
@@ -41,6 +45,10 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
         Fabric.with(context, new Crashlytics());
         db = new DatabaseHelper(context);
 
+        if (intent.getExtras() != null){
+            longMilis = intent.getLongExtra("mytime",0);
+        }
+
         List<Gratitude> list = db.getAllGratitude(8, null, 0);
         if (list.size() != 0) {
             notificationNote = list.get(INDEX).getNote();
@@ -49,7 +57,7 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Intent repeatingIntent = new Intent(context, DetailOfListActivity.class);
             repeatingIntent.putExtra(DetailOfListActivity.EXTRA_ID_NOT, mojeidecko);
-
+            setNotificationMotivation(context);
             //repeatingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -85,5 +93,23 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
         }
         String outputDateStr = outputFormat.format(date);
         return outputDateStr;
+    }
+
+    private void setNotificationMotivation(Context context) {
+
+        // this nahrait za getApplicationContext
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, NotificationReciever.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 99, intent, 0);
+        //PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (longMilis != 0) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(longMilis);
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            if (alarmManager != null) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            }
+        }
     }
 }
