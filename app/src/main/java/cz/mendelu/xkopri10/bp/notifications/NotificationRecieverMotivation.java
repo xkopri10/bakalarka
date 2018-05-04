@@ -31,7 +31,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class NotificationRecieverMotivation extends BroadcastReceiver {
 
-    long longMilis = 0;
+    //long longMilis = 0;
 
     DatabaseHelper db;
     String notificationNote;
@@ -42,13 +42,14 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        context.startService(new Intent(context,NeverEndingService.class));
         Fabric.with(context, new Crashlytics());
         db = new DatabaseHelper(context);
-
+/*
         if (intent.getExtras() != null){
             longMilis = intent.getLongExtra("mytime",0);
         }
-
+*/
         List<Gratitude> list = db.getAllGratitude(8, null, 0);
         if (list.size() != 0) {
             notificationNote = list.get(INDEX).getNote();
@@ -57,7 +58,7 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Intent repeatingIntent = new Intent(context, DetailOfListActivity.class);
             repeatingIntent.putExtra(DetailOfListActivity.EXTRA_ID_NOT, mojeidecko);
-            setNotificationMotivation(context);
+            //setNotificationMotivation(context);
             //repeatingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -94,7 +95,7 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
         String outputDateStr = outputFormat.format(date);
         return outputDateStr;
     }
-
+/*
     private void setNotificationMotivation(Context context) {
 
         // this nahrait za getApplicationContext
@@ -112,4 +113,5 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
             }
         }
     }
+    */
 }

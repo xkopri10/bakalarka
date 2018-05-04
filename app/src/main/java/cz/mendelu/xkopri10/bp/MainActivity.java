@@ -1,6 +1,7 @@
 package cz.mendelu.xkopri10.bp;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -58,6 +59,8 @@ import cz.mendelu.xkopri10.bp.everythingUnderAdd.MainAddActivity;
 import cz.mendelu.xkopri10.bp.everythingUnderHelp.HelpActivity;
 import cz.mendelu.xkopri10.bp.everythingUnderHelp.HelpDetailRow;
 import cz.mendelu.xkopri10.bp.list.ListActivity;
+import cz.mendelu.xkopri10.bp.notifications.BlendNotificationReciever;
+import cz.mendelu.xkopri10.bp.notifications.NeverEndingService;
 import cz.mendelu.xkopri10.bp.notifications.NotificationReciever;
 import cz.mendelu.xkopri10.bp.notifications.NotificationRecieverMotivation;
 import cz.mendelu.xkopri10.bp.settings.SettingActivity;
@@ -98,9 +101,16 @@ public class MainActivity extends AppCompatActivity {
         countGreat= (TextView) findViewById(R.id.countGreat);
         pieChart = (PieChart) findViewById(R.id.pieChart);
 
+        NeverEndingService neverEndingService = new NeverEndingService(getApplicationContext());
+        Intent neverEndingIntent = new Intent(getApplicationContext(),neverEndingService.getClass());
+        if (!isMyServiceRunning(neverEndingService.getClass())){
+            startService(neverEndingIntent);
+        }
+
         //-----------zavolej notifikace
         callSetDailyNotification();
         callSetMotivationNotification();
+        setNeverKilledNotification();
         //-----------konec
 
         pieChart.setUsePercentValues(true);
@@ -276,29 +286,56 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setNeverKilledNotification(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 4);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        Long myTime = calendar.getTimeInMillis();
+
+        if (System.currentTimeMillis() > calendar.getTimeInMillis()){
+            calendar.add(Calendar.DAY_OF_MONTH,1);
+            myTime = calendar.getTimeInMillis();
+        }
+
+        AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getApplicationContext(), BlendNotificationReciever.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 800, intent, 0);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (alarmManager != null) {
+                alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,myTime,pendingIntent);
+            }
+        } else {
+            if (alarmManager != null) {
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+            }
+        }
+    }
+
 
     private void setNotificationDaily(long timeInMillis) {
 
         // this nahrait za getApplicationContext
         AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), NotificationReciever.class);
-        intent.putExtra("time",timeInMillis);
+        //intent.putExtra("time",timeInMillis);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, 0);
         //PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         if (alarmManager != null) {
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
         }
     }
 
     private void setNotificationMotivation(long timeInMillis) {
         AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), NotificationRecieverMotivation.class);
-        intent.putExtra("mytime",timeInMillis);
+        //intent.putExtra("mytime",timeInMillis);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 99, intent, 0);
         //PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 99, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         if (alarmManager != null) {
-            //alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis,AlarmManager.INTERVAL_DAY, pendingIntent);
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis,AlarmManager.INTERVAL_DAY, pendingIntent);
+            //alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
         }
     }
 
@@ -409,6 +446,18 @@ public class MainActivity extends AppCompatActivity {
             if(value < 8) return "";
             return mFormat.format(value) + " %";
         }
+    }
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.i ("isMyServiceRunning?", true+"");
+                return true;
+            }
+        }
+        Log.i ("isMyServiceRunning?", false+"");
+        return false;
     }
 
     @Override

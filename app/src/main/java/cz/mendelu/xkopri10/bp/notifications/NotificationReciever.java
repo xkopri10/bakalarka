@@ -22,18 +22,19 @@ import cz.mendelu.xkopri10.bp.everythingUnderAdd.MainAddActivity;
 
 public class NotificationReciever extends BroadcastReceiver{
 
-     long longMilis = 0;
+     //long longMilis = 0;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
+        context.startService(new Intent(context,NeverEndingService.class));
+/*
         if (intent.getExtras() != null){
             longMilis = intent.getLongExtra("time",0);
         }
-
+*/
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent repeatingIntent = new Intent(context,MainAddActivity.class);
-        setNotificationDaily(context);
+        //setNotificationDaily(context);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100, repeatingIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -51,7 +52,7 @@ public class NotificationReciever extends BroadcastReceiver{
                 .setAutoCancel(true);
             notificationManager.notify(100,builder.build());
     }
-
+/*
     private void setNotificationDaily(Context context) {
 
         // this nahrait za getApplicationContext
@@ -69,5 +70,6 @@ public class NotificationReciever extends BroadcastReceiver{
             }
         }
     }
+    */
 
 }
