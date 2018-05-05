@@ -55,28 +55,16 @@
             android:name=".notifications.NotificationReciever"
             android:enabled="true"
             android:exported="true">
-
-            <intent-filter>
-                <action android:name="ac.in.ActivityRecognition.RestartSensor" />
-            </intent-filter>
         </receiver>
 
-        <receiver
-            android:name=".notifications.BlendNotificationReciever"
+        <receiver android:name=".notifications.BlendNotificationReciever"
             android:enabled="true"
-            android:exported="true">
-        </receiver>
-
+            android:exported="true"/>
 
         <receiver
             android:name=".notifications.NotificationRecieverMotivation"
             android:enabled="true"
             android:exported="true">
-
-
-            <intent-filter>
-                <action android:name="ac.in.ActivityRecognition.RestartSensor" />
-            </intent-filter>
         </receiver>
 
         <meta-data

@@ -11,10 +11,13 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.Calendar;
 
 import cz.mendelu.xkopri10.bp.R;
 import cz.mendelu.xkopri10.bp.everythingUnderAdd.MainAddActivity;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Martin on 14.03.2018.
@@ -26,7 +29,9 @@ public class NotificationReciever extends BroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.startService(new Intent(context,NeverEndingService.class));
+        // pro pouziti Never ending servicu toto odkomentovat
+        //context.startService(new Intent(context,NeverEndingService.class));
+        Fabric.with(context, new Crashlytics());
 /*
         if (intent.getExtras() != null){
             longMilis = intent.getLongExtra("time",0);

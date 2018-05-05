@@ -10,6 +10,14 @@ import android.util.Log;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*  TOTO VLOZIT K RECIEVERU DO MANIFESTU + ODKOMENTOVAT 1. RADEK V RECIEVERU
+
+            <intent-filter>
+                <action android:name="ac.in.ActivityRecognition.RestartSensor" />
+            </intent-filter>
+
+ */
+
 public class NeverEndingService extends Service {
     public int couter = 0;
     Context context;

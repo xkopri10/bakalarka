@@ -92,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = new DatabaseHelper(this);
+        //-----------zavolej notifikace
+        callBlendNotification();
+        callSetDailyNotification();
+        callSetMotivationNotification();
+        //-----------konec
 
         noChartDataImage = (ImageView) findViewById(R.id.noChartDataImage);
         noChartDataText = (TextView) findViewById(R.id.noChartDataText);
@@ -100,18 +105,13 @@ public class MainActivity extends AppCompatActivity {
         countGrat = (TextView) findViewById(R.id.countGrat);
         countGreat= (TextView) findViewById(R.id.countGreat);
         pieChart = (PieChart) findViewById(R.id.pieChart);
-
+/*
         NeverEndingService neverEndingService = new NeverEndingService(getApplicationContext());
         Intent neverEndingIntent = new Intent(getApplicationContext(),neverEndingService.getClass());
         if (!isMyServiceRunning(neverEndingService.getClass())){
             startService(neverEndingIntent);
         }
-
-        //-----------zavolej notifikace
-        callSetDailyNotification();
-        callSetMotivationNotification();
-        setNeverKilledNotification();
-        //-----------konec
+*/
 
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
@@ -286,11 +286,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setNeverKilledNotification(){
+    private void callBlendNotification(){
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 4);
         calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.SECOND, 1);
         Long myTime = calendar.getTimeInMillis();
 
         if (System.currentTimeMillis() > calendar.getTimeInMillis()){
@@ -302,13 +302,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), BlendNotificationReciever.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 800, intent, 0);
 
+        //Toast.makeText(getApplicationContext(), "Blend notification activity" , Toast.LENGTH_SHORT).show();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (alarmManager != null) {
                 alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,myTime,pendingIntent);
             }
         } else {
             if (alarmManager != null) {
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, myTime, AlarmManager.INTERVAL_DAY, pendingIntent);
             }
         }
     }

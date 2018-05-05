@@ -42,7 +42,8 @@ public class NotificationRecieverMotivation extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.startService(new Intent(context,NeverEndingService.class));
+        // pro pouziti Never ending servicu toto odkomentovat
+        //context.startService(new Intent(context,NeverEndingService.class));
         Fabric.with(context, new Crashlytics());
         db = new DatabaseHelper(context);
 /*
