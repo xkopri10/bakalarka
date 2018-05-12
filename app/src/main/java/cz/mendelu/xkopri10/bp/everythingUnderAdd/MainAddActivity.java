@@ -323,14 +323,14 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
                 spinner1.setEnabled(false);
                 spinner2.setEnabled(false);
                 editTextNote.setEnabled(false);
-                editTextNote.setHint("Dnes jsi již přidal 3 radosti. Další můžeš až zítra.");
+                editTextNote.setHint("Dnes jsi již přidal 3 radosti. Další můžeš už zítra.");
                 fab1.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.second_grey)));
                 fab1.setEnabled(false);
             }
         }else if (type == 2){
             if (db.getCountOfGreatfulness(2) == 1) {
                 editTextNote2.setEnabled(false);
-                editTextNote2.setHint("Dnes jsi již vděčnost přidal, další můžeš až zítra.");
+                editTextNote2.setHint("Dnes jsi již vděčnost přidal, další můžeš už zítra.");
                 getAlertDialog(2);
             }
         }

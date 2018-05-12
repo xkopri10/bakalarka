@@ -32,15 +32,15 @@ public class HintActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         aboutMethod.setText(
-                "Princip aplikace je založen na metodě, která se jmenuje Tři pozitivní věci. \n\nMetodu vynalezl v roce 2009 americký psycholog Martin Selingman a aplikoval ji na amerických vojácích, kteří trpěli nedostatkem pocitu štěstí s depresemi. \n\nJiž po 3 týdnech aplikování metody, se u vojáků začalo projevovat pozitivní myšlení a pocit štěstí. Po 6 měsících jejich deprese takřka odezněly."
+                "Princip aplikace je založen na metodě, která se jmenuje Tři pozitivní věci. \n\nMetodu vynalezl v roce 2009 americký psycholog Martin Selingman a aplikoval ji na amerických vojácích, kteří trpěli nedostatkem pocitu štěstí, depresemi a někteří z nich si šáhli i na život. \n\nJiž po 3 týdnech aplikování metody, začne mozek vnímat pouze pozitivní věci a negativní půjdou stranou. U vojáků to znamenalo zvýšení hladiny štěstí a vděčností vůči blízkým lidem a snížení počtu depresí a sebevražd.\nPo 6 měsících deprese takřka odezněly."
         );
 
         firstTextView.setText(
-                "Každý den se snaž zapsat 3 radosti, které tě během dne potěšily. V případě, že ti radost nic nepřineslo, zapiš si alespoň vděčnost,");
+                "Každý den se snaž zapsat 3 radosti, které tě během dne potěšily. V případě, že ti radost nic nepřineslo, zapiš si alespoň vděčnost.");
 
         exampleText.setText("Příklad:\nRadost = 'Dnešní oběd s přáteli byl skvělý.'\nVděčnost = 'Rodina.'");
 
-        moredetailText.setText("V poznámce u vděčnosti se snaž vystihnout svůj vděk nejlépe jedním slovem. Aplikace se tak stane přehlednější. Naopak u radosti se rozepiš co nejvíce.");
+        moredetailText.setText("V poznámce u vděčnosti se snaž vystihnout svůj vděk minimálním počtem slov. Aplikace se tak stane přehlednější. Naopak u radosti se rozepiš co nejvíce.");
 
         secondTextView.setText(
                 "V případě špatné nálady nebo těžkého období si nech zasílat notifikace s radostma,"
@@ -50,7 +50,7 @@ public class HintActivity extends AppCompatActivity {
         thirdTextView.setText(
                 "Své radosti i vděčnosti můžeš kontrolovat v jednotlivých statistikách, "
                         +"kde uvidíš jaké kategorie ti dělají největší radost a které naopak méně. "
-                        +"\nV případě těch málo obsazených kategorií si udělej sám/a pro sebe analýzu proč jsou zrovna tyto kategorie málo obsazené a nepřináší ti takovou radost jako ostatní. To stejné platí i pro průměrné ohodnocení.");
+                        +"\nV případě těch málo obsazených kategorií si udělej sám/a pro sebe analýzu proč jsou zrovna tyto kategorie málo obsazené a nepřináší ti takovou radost jako ostatní. To stejné platí i pro průměrné ohodnocení jednotlivých kategorií.");
     }
 
     //metoda prro tlačítko zpět

@@ -179,7 +179,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else if (cisloHledani == 4) {
             selectQuery = "SELECT * FROM " + TABLE_GREATFULNESS
                     + " WHERE (" + KEY_DATE_GREATFULNESS + " > date('now', '-30 days'))"
-                    + " ORDER BY RANDOM(), " + KEY_DATE_GREATFULNESS + " ASC LIMIT 3";
+                    + " ORDER BY RANDOM(), " + KEY_DATE_GREATFULNESS + " ASC LIMIT 4";
             Log.e(LOG, selectQuery);
         }else if (cisloHledani == 5) {
             selectQuery = "SELECT * FROM " + TABLE_GREATFULNESS + " ORDER BY RANDOM() LIMIT 1";
@@ -297,12 +297,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             selectQuery = "SELECT * FROM " + TABLE_GRATITUDE + " ORDER BY RANDOM() LIMIT 1";
         } else if (cisloHledani == 6) {
             selectQuery = "SELECT * FROM " + TABLE_GRATITUDE
-                            +" WHERE ("+ KEY_DATE_GRATITUDE +" >= date('now','localtime', '-6 day')) AND  ("+ KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND (" + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ " WHERE "+ KEY_MY_ID_CATEGORY + " = " + idKategorie + "))"
+                            +" WHERE ("+ KEY_DATE_GRATITUDE +" >= date('now','localtime', '-6 day')) AND  ("+ KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND (" + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ " WHERE (("+ KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND ("+ KEY_DATE_GRATITUDE +" >= date('now','localtime', '-6 day')))))"
                             + " ORDER BY " + KEY_DATE_GRATITUDE + " ASC, RANDOM() LIMIT 3";
             Log.e(LOG, selectQuery);
         } else if (cisloHledani == 7) {
             selectQuery = "SELECT * FROM " + TABLE_GRATITUDE
-                    + " WHERE (" + KEY_DATE_GRATITUDE + " > date('now', '-30 days')) AND (" + KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND (" + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ " WHERE "+ KEY_MY_ID_CATEGORY + " = " + idKategorie + "))"
+                    + " WHERE (" + KEY_DATE_GRATITUDE + " > date('now', '-30 days')) AND (" + KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND (" + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ " WHERE (("+ KEY_MY_ID_CATEGORY + " = " + idKategorie + ") AND ("+ KEY_DATE_GRATITUDE +" >= date('now', '-30 days')))))"
                     + " ORDER BY RANDOM(), " + KEY_DATE_GRATITUDE + " ASC LIMIT 3";
             Log.e(LOG, selectQuery);
 
