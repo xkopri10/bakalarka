@@ -32,7 +32,7 @@ public class HintActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         aboutMethod.setText(
-                "Princip aplikace je založen na metodě, která se jmenuje Tři pozitivní věci. \n\nMetodu vynalezl v roce 2009 americký psycholog Martin Selingman a aplikoval ji na amerických vojácích, kteří trpěli nedostatkem pocitu štěstí, depresemi a někteří z nich si šáhli i na život. \n\nJiž po 3 týdnech aplikování metody, začne mozek vnímat pouze pozitivní věci a negativní půjdou stranou. U vojáků to znamenalo zvýšení hladiny štěstí a vděčností vůči blízkým lidem a snížení počtu depresí a sebevražd.\nPo 6 měsících deprese takřka odezněly."
+                "Princip aplikace je založen na metodě, která se jmenuje Tři pozitivní věci. \n\nMetodu vynalezl v roce 2009 americký psycholog Martin Seligman a aplikoval ji na amerických vojácích, kteří trpěli nedostatkem pocitu štěstí, depresemi a někteří z nich si sáhli i na život. \n\nJiž po 3 týdnech aplikování metody začne mozek vnímat pouze pozitivní věci a negativní půjdou stranou. U vojáků to znamenalo zvýšení hladiny štěstí a vděčností vůči blízkým osobám a snížení počtu depresí a sebevražd.\nPo 6 měsících deprese takřka odezněly."
         );
 
         firstTextView.setText(
@@ -43,13 +43,13 @@ public class HintActivity extends AppCompatActivity {
         moredetailText.setText("V poznámce u vděčnosti se snaž vystihnout svůj vděk minimálním počtem slov. Aplikace se tak stane přehlednější. Naopak u radosti se rozepiš co nejvíce.");
 
         secondTextView.setText(
-                "V případě špatné nálady nebo těžkého období si nech zasílat notifikace s radostma,"
+                "V případě špatné nálady nebo těžkého období si nech zasílat notifikace s radostmi,"
                         +" které tě udělaly v minulosti šťastným/nou na základě tebou vybraných kategorií."
-                        +" A nech se motivovat svýma radostma z minulosti. Zamysli se nad sebou zda je vůbec důvod být smutný.");
+                        +" A nech se motivovat svými radostmi z minulosti. Zamysli se nad sebou zda je vůbec důvod být smutný.");
 
         thirdTextView.setText(
                 "Své radosti i vděčnosti můžeš kontrolovat v jednotlivých statistikách, "
-                        +"kde uvidíš jaké kategorie ti dělají největší radost a které naopak méně. "
+                        +"kde uvidíš jaké kategorie ti dělají největší radost, a které naopak méně. "
                         +"\nV případě těch málo obsazených kategorií si udělej sám/a pro sebe analýzu proč jsou zrovna tyto kategorie málo obsazené a nepřináší ti takovou radost jako ostatní. To stejné platí i pro průměrné ohodnocení jednotlivých kategorií.");
     }
 

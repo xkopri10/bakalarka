@@ -24,7 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:text="Zadej počet dní určující, po jakou dobu od data začátku se budou zasílat motivační notifikace."
+        android:text="Zadej počet dní určující po jakou dobu od data začátku se budou zasílat motivační notifikace."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/blackOpacity"
         android:textSize="14sp" />

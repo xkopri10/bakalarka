@@ -61,7 +61,7 @@ public class DetailOfListActivityGratitude extends AppCompatActivity {
             noteView.setText(greatfulness.getNoteGreatfulness());
         }
 
-        colorView.setBackgroundColor(getColor(R.color.greatfulness_color_gold));
+        colorView.setBackgroundColor(getColor(R.color.gold3));
     }
 
     public String konverze(String neco){

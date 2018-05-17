@@ -61,7 +61,7 @@ public class InformationActivity extends AppCompatActivity {
         );
         textViewAuthor.setText(
                 "Martin Kopřiva\n" +
-                "Student Mendelovy univerzity v Brně\n" +
+                "Mendelova univerzita v Brně\n" +
                 "2018\n"
         );
     }

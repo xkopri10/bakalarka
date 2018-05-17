@@ -59,7 +59,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.TypeViewHolder
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setTitle("Odstranit");
-                builder.setMessage("Opravdu si přejete typ odstranit? "
+                builder.setMessage("Opravdu si přeješ typ odstranit? "
                         + "V případě, že je typ použit, nebude nahrazen.");
                 builder.setPositiveButton(
                         "ODSTRANIT",

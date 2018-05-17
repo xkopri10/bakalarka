@@ -309,7 +309,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }else if (cisloHledani == 8) {
                 selectQuery = "SELECT * FROM " + TABLE_GRATITUDE + " tabGr"
                         + " JOIN " + TABLE_CATEGORY + " tabCat ON tabGr." + KEY_MY_ID_CATEGORY + " = tabCat." + KEY_ID
-                        + " WHERE ((tabCat." + KEY_SELECTED_STATE + " = 1) AND (tabGr." + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ ")))"
+                        + " WHERE ((tabCat." + KEY_SELECTED_STATE + " = 1) AND (tabGr." + KEY_RATE_GRATITUDE + " >= (SELECT MAX("+ KEY_RATE_GRATITUDE +")-2 FROM "+TABLE_GRATITUDE+ " WHERE ("+ KEY_DATE_GRATITUDE +" >= date('now', '-30 days')))))"
                         + " ORDER BY RANDOM() LIMIT 1";
             Log.e(LOG, selectQuery);
         }

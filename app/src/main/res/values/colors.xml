@@ -19,9 +19,12 @@
     <color name="dark_grey">#5E5E5E</color>
     <color name="blue">#36486b</color>
     <color name="gold2">#e6a700</color>
+    <color name="gold3">#F0AE00</color>
 
     <color name="greatfulness_color_gold">#FBC02D</color>
     <color name="color_orange">#E4572E</color>
+
+    <color name="aaaaa">#087E8B</color>
 
 
 </resources>

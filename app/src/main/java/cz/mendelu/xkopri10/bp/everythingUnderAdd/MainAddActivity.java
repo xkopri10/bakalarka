@@ -311,6 +311,13 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
                 return false;
             }
         });
+
+        obstructor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showOrClosedObstructorAndFloatButtonFirst();
+            }
+        });
     }
 
     public void getAlertWhenCountIsMax(int type){
@@ -323,14 +330,14 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
                 spinner1.setEnabled(false);
                 spinner2.setEnabled(false);
                 editTextNote.setEnabled(false);
-                editTextNote.setHint("Dnes jsi již přidal 3 radosti. Další můžeš už zítra.");
+                editTextNote.setHint("Dnes jsi již přidal/a 3 radosti. Další můžeš už zítra.");
                 fab1.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.second_grey)));
                 fab1.setEnabled(false);
             }
         }else if (type == 2){
             if (db.getCountOfGreatfulness(2) == 1) {
                 editTextNote2.setEnabled(false);
-                editTextNote2.setHint("Dnes jsi již vděčnost přidal, další můžeš už zítra.");
+                editTextNote2.setHint("Dnes jsi již vděčnost přidal/a, další můžeš už zítra.");
                 getAlertDialog(2);
             }
         }
@@ -493,6 +500,32 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
         }
     }
 
+    public void showOrClosedObstructorAndFloatButtonFirst(){
+        if (isOpen){
+            pressed = false;
+            onPeresFloatButtonHideCheck();
+
+            obstructor.setVisibility(View.INVISIBLE);
+            fab2.startAnimation(fabclose);
+            fab3.startAnimation(fabclose);
+            fab1.startAnimation(fabnorotate);
+            fab2.setClickable(false);
+            fab3.setClickable(false);
+            isOpen = false;
+        }else{
+            pressed = true;
+            onPeresFloatButtonHideCheck();
+
+            obstructor.setVisibility(View.VISIBLE);
+            fab2.startAnimation(fabopen);
+            fab3.startAnimation(fabopen);
+            fab1.startAnimation(fabrotate);
+            fab2.setClickable(true);
+            fab3.setClickable(true);
+            isOpen = true;
+        }
+    }
+
     public void floatingButtonDefinition(){
         fabopen = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
         fabclose = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
@@ -503,29 +536,7 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isOpen){
-                    pressed = false;
-                    onPeresFloatButtonHideCheck();
-
-                    obstructor.setVisibility(View.INVISIBLE);
-                    fab2.startAnimation(fabclose);
-                    fab3.startAnimation(fabclose);
-                    fab1.startAnimation(fabnorotate);
-                    fab2.setClickable(false);
-                    fab3.setClickable(false);
-                    isOpen = false;
-                }else{
-                    pressed = true;
-                    onPeresFloatButtonHideCheck();
-
-                    obstructor.setVisibility(View.VISIBLE);
-                    fab2.startAnimation(fabopen);
-                    fab3.startAnimation(fabopen);
-                    fab1.startAnimation(fabrotate);
-                    fab2.setClickable(true);
-                    fab3.setClickable(true);
-                    isOpen = true;
-                }
+                showOrClosedObstructorAndFloatButtonFirst();
             }
         });
 
@@ -792,7 +803,7 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
                 //greatfulness.setDateGreatfulness(textViewDate.getText().toString());
                 greatfulness.setDateGreatfulness(xxxxx);
                 greatfulness.setNoteGreatfulness(editTextNote2.getText().toString());
-                greatfulness.setColorGreatfulness("#FBC02D");
+                greatfulness.setColorGreatfulness("#F0AE00");
 
                 poznamka = greatfulness.getNoteGreatfulness();
 

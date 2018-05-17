@@ -123,7 +123,7 @@
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="15dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/gold"
+                app:cardBackgroundColor="@color/gold3"
                 app:cardElevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

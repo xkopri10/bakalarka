@@ -25,7 +25,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
-        android:text="Dnes již byla vložena 1 vděčnost. Denní limit vyčerán. Další vděčnost můžeš vložit už zítra."
+        android:text="Dnes již byla vložena 1 vděčnost. Denní limit vyčerpán. Další vděčnost můžeš vložit už zítra."
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

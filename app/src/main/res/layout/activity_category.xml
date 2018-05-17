@@ -70,7 +70,7 @@
                 android:layout_marginEnd="85dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="25dp"
-                android:text="Vyber barvu reprezuntující kategorii"
+                android:text="Vyber barvu reprezentující kategorii"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/colorPickerButton"
