@@ -28,14 +28,9 @@ import io.fabric.sdk.android.Fabric;
 
 public class ListActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} poskytne fragmenty pro každou sekci/kartu. používáme:
-     * {@link FragmentPagerAdapter} který bude udržovat všechny načtené fragmenty v paměti. Pokud se stanou příliš náročnými na
-     * pamět, bude nejlepší přejít na: {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    // The {@link ViewPager} bude obsahovat obsah karty
+    // bude obsahovat obsah karty
     private ViewPager mViewPager;
 
     @Override
@@ -48,7 +43,7 @@ public class ListActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Vytvoří adaptér, který bude vracet jeden ze dvou fragmentů
+        // Vytvoří adaptér, který bude vracet jeden ze tří fragmentů
         // primární část aktivity
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -114,7 +109,7 @@ public class ListActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Ukaž mi celkem 2 sekce/karty
+            // Ukaž mi celkem 3 sekce/karty
             return 3;
         }
     }

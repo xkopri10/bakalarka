@@ -65,7 +65,6 @@ public class HelpActivity extends AppCompatActivity {
         cardView = (CardView) findViewById(R.id.helpCardViewGratitude);
         cardView2 = (CardView) findViewById(R.id.cardView);
         recyclerView = (RecyclerView) findViewById(R.id.myRecyclerViewHelpActivity);
-        //linearLayout = (LinearLayout) findViewById(R.id.temp);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setFocusable(false);       //kvuli scrollingu (aby se nezacinalo scrollovat u recycle view)

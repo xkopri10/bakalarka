@@ -268,8 +268,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // - pokud parametr cisloHledani = 3 pak se hledaji ty které vyhovují danému datumu
     // - pokud parametr cisloHledani = 4 pak se vyhledá ta která odpovídá danému ID
     // - pokud parametr cisloHledani = 5 se vyhledá RANDOM jedna vděčnost
-    // - pokud parametr cisloHledani = 6 se vyhledá 3 za posledni tyden podle kategorie a hodnocení větší jak 8
-    // - pokud parametr cisloHledani = 7 se vyhledá 3 za posledni měsíc podle kategorie a hodnocení větší jak 8
+    // - pokud parametr cisloHledani = 6 se vyhledá 3 nejlepsi za posledni tyden podle kategorie a hodnocení
+    // - pokud parametr cisloHledani = 7 se vyhledá 3 nejlepsi za posledni měsíc podle kategorie a hodnocení
     // - pokud parametr cisloHledani = 8 se vyhleda 1 radost ktera ma svoji kategorii zakriskovanou + se vybere jen vzdy random z MAX - 2 ohodnoceni
 
     public List<Gratitude> getAllGratitude(int cisloHledani, String vybranyDatum, long idKategorie) {

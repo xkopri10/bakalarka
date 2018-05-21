@@ -323,8 +323,6 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
     public void getAlertWhenCountIsMax(int type){
         if (type == 1) {
             if (db.getCountOfGratitudes(2) == 3) {
-                //MenuItem menuItem = menu.findItem(R.id.check);
-                //menuItem.setEnabled(false);
                 getAlertDialog(1);
                 seekBar.setEnabled(false);
                 spinner1.setEnabled(false);
@@ -589,7 +587,6 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
     }
 
     //metoda pro skrytí klávesnice při přejíždění z TABu Vděčnost na Radost to házelo Warning
-    //getExtractedText on inactive InputConnection warning on android
     public void hideKeyboard() {
         InputMethodManager inputMethodManager =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null) {
@@ -727,7 +724,6 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
         }else jePrazdnyCat = false;
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nameList);
-        //drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // připojení adaptéru na spinner
         spinner1.setAdapter(dataAdapter);
@@ -800,7 +796,6 @@ public class MainAddActivity extends AppCompatActivity implements AdapterView.On
                 }
             }else {
                 Greatfulness greatfulness = new Greatfulness();
-                //greatfulness.setDateGreatfulness(textViewDate.getText().toString());
                 greatfulness.setDateGreatfulness(xxxxx);
                 greatfulness.setNoteGreatfulness(editTextNote2.getText().toString());
                 greatfulness.setColorGreatfulness("#F0AE00");

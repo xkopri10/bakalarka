@@ -45,7 +45,6 @@ public class CategoryAdapterSettings extends RecyclerView.Adapter<CategoryAdapte
         final Category cat = categoryList.get(position);
 
         final long catID = cat.getId();
-        //mojecategory = db.getNameOfCategioryById(catID);
         category = db.getCategory(catID);
 
         holder.textViewCategory.setText(cat.getName());

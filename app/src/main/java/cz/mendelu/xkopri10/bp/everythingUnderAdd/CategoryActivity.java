@@ -72,7 +72,6 @@ public class CategoryActivity extends AppCompatActivity {
 
         //pro poslani id z minule aktivity
         bundleFromPreviousActivity();
-        //myColor = mojeBarva;
         if (editace){
             myColor = mojeBarva;
         }else myColor = DEFAULT_COLOR;

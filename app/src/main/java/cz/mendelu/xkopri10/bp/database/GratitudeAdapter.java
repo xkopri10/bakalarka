@@ -69,12 +69,9 @@ public class GratitudeAdapter extends RecyclerView.Adapter<GratitudeAdapter.Grat
         datumek = konverze(gratitude.getDate());
         Log.e("datumek: ",datumek);
 
-        //holder.textViewDate.setText(gratitude.getDate());
         holder.textViewDate.setText(datumek);
         holder.textViewNote.setText(gratitude.getNote());
         holder.textViewCategory.setText(mojecategory);
-        //holder.colorView.setBackgroundColor(Color.parseColor(category.getColorCategory()));
-        //funguje - použít ale s jemnějšíma barvama
         holder.cardView.setBackgroundColor(Color.parseColor(category.getColorCategory()));
 
 
@@ -111,7 +108,6 @@ public class GratitudeAdapter extends RecyclerView.Adapter<GratitudeAdapter.Grat
             textViewDate = itemView.findViewById(R.id.textViewHead);
             textViewNote = itemView.findViewById(R.id.textViewNote);
             textViewCategory = itemView.findViewById(R.id.textViewCategory);
-            //colorView = itemView.findViewById(R.id.color_card);
             cardView = itemView.findViewById(R.id.myCardView);
         }
     }

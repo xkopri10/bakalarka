@@ -53,7 +53,7 @@ public class NeverEndingService extends Service {
     public void startTimer(){
         timer = new Timer();
         initializeTimerTask();
-        //probud me kazdou sekundu
+        //probud me kazdou minutu
         timer.schedule(timerTask,60000,60000);
     }
 

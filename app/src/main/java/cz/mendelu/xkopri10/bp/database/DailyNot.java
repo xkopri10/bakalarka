@@ -8,7 +8,6 @@ public class DailyNot {
 
     private int id;
     private int state;
-    //private String time;
     private int hour;
     private int minute;
 

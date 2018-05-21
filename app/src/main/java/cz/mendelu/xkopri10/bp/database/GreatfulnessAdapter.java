@@ -52,10 +52,8 @@ public class GreatfulnessAdapter extends RecyclerView.Adapter<GreatfulnessAdapte
         datumek = konverze(greatfulness.getDateGreatfulness());
         Log.e("datumek: ", datumek);
 
-        //holder.textViewDate.setText(greatfulness.getDateGreatfulness());
         holder.textViewDate.setText(datumek);
         holder.textViewNote.setText(greatfulness.getNoteGreatfulness());
-        //holder.colorView.setBackgroundColor(Color.parseColor(greatfulness.getColorGreatfulness()));
         holder.cardView.setCardBackgroundColor(Color.parseColor(greatfulness.getColorGreatfulness()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +84,6 @@ public class GreatfulnessAdapter extends RecyclerView.Adapter<GreatfulnessAdapte
 
             textViewDate = itemView.findViewById(R.id.textViewDateGreatfulness);
             textViewNote = itemView.findViewById(R.id.textViewNoteGreatfulness);
-            //colorView = itemView.findViewById(R.id.color_card_greatfulness);
             cardView = itemView.findViewById(R.id.myCardViewGreatfulness);
         }
     }
